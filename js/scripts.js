@@ -4,12 +4,19 @@ function Player() {
   this.totalScore = 0 //total score for all turns
 }
 
+Player.prototype.hold = function() {
+  this.totalScore += this.turnScore;
+  this.turnScore = 0;
+  this.diceRoll =0;
+  myGame.playerTwoTurn = !myGame.playerTwoTurn;
+}
+
 Player.prototype.rollDice = function() {
   var roll = Math.floor(Math.random()*6) + 1;
   this.diceRoll = roll;
   if (roll === 1) {
     this.turnScore = 0;
-    myGame.playerTwoTurn = !myGame.playerTwoTurn
+    myGame.playerTwoTurn = !myGame.playerTwoTurn;
   } else {
 
     this.turnScore += roll;
@@ -44,6 +51,14 @@ function attachRollListeners() {
   $("#roll").on("click", function() {
     var player = myGame.getCurrentPlayer();
     player.rollDice();
+    $("#rollResults").text(player.diceRoll);
+    $("#totalResults").text(player.turnScore);
+    console.log(myGame.playerTwoTurn);
+  });
+  $("#hold").on("click", function() {
+    var player = myGame.getCurrentPlayer();
+    //var creates the variable and name it player assign it the value with = value returned by the function getCurrentPlayer, under the myGame object
+    player.hold();
     $("#rollResults").text(player.diceRoll);
     $("#totalResults").text(player.turnScore);
     console.log(myGame.playerTwoTurn);
