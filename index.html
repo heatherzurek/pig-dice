@@ -13,13 +13,24 @@
       <div class="card" id="player-1-scorecard" style="width: 18rem;">
         <img class="card-img-top" src="./img/pig-1.jpg" alt="Card image cap">
         <div class="card-body">
-          <h4>Player 1 Scorecard:</h4>
-          <p class="card-text"> </p>
+          <h4>Player 1 Scorecard</h4>
+          <p class="card-text" id="player-1-total">Total Points: <span id="player-1-total-points"></span></p>
         </div>
       </div>
-      <div class="card" id="dice-roll-card" style="width: 18rem;">
+      <div class="card" id="dice-roll-card" style="width: 22rem;">
         <div class="card-body">
           <h1>Pig Dice</h1>
+          <div class="card" id="rules" style="width: 18rem;">
+            <div class="card-body">
+              <p>Each turn, a player repeatedly rolls a die until either a 1 is rolled or the player decides to "hold":
+              <ul>
+                <li>If the player rolls a 1, they score nothing and it becomes the next player's turn.</li>
+                <li>If the player rolls any other number, it is added to their turn total and the player's turn continues.</li>
+                <li>If a player chooses to "hold", their turn total is added to their score, and it becomes the next player's turn.</li>
+              </ul>
+              The first player to score 100 or more points wins.</p>
+            </div>
+          </div>
           <p class="die">Dice Roll:<span id="rollResults"></span></p>
           <section id="button-section">
             <button type="submit" id="roll" class="btn btn-danger">Roll</button>
@@ -32,8 +43,8 @@
     <div class="card" id="player-2-scorecard" style="width: 18rem;">
       <img class="card-img-top" src="./img/pig-2.jpg" alt="Card image cap">
       <div class="card-body">
-        <h4>Player 2 Scorecard:</h4>
-        <p class="card-text"> </p>
+        <h4>Player 2 Scorecard</h4>
+        <p class="card-text" id="player-2-total">Total Points: <span id="player-2-total-points"></span></p>
       </div>
     </div>
     </main>

@@ -7,7 +7,7 @@ function Player() {
 Player.prototype.hold = function() {
   this.totalScore += this.turnScore;
   this.turnScore = 0;
-  this.diceRoll =0;
+  this.diceRoll = 0;
   myGame.playerTwoTurn = !myGame.playerTwoTurn;
 }
 
@@ -20,17 +20,16 @@ Player.prototype.rollDice = function() {
   } else {
 
     this.turnScore += roll;
+    this.totalScore += this.turnScore;
   }
 }
-
-
 
 function Game() {
   this.playerTwoTurn = false;
   this.players = [];
 }
 
-Game.prototype.getCurrentPlayer = function () {
+Game.prototype.getCurrentPlayer = function() {
   if (this.playerTwoTurn === true ) {
   return this.players[1]
 } else if (this.playerTwoTurn === false ) {
@@ -53,6 +52,8 @@ function attachRollListeners() {
     player.rollDice();
     $("#rollResults").text(player.diceRoll);
     $("#totalResults").text(player.turnScore);
+    $("#player" + 1 + "total-points").text(player.totalScore); //funky
+    $("#player-2-total-points").text(player.totalScore);
     console.log(myGame.playerTwoTurn);
   });
   $("#hold").on("click", function() {
@@ -61,6 +62,8 @@ function attachRollListeners() {
     player.hold();
     $("#rollResults").text(player.diceRoll);
     $("#totalResults").text(player.turnScore);
+    $("#player-1-total-points").text(player.totalScore);
+    // $("#player-2-total-points").text(player.totalScore);
     console.log(myGame.playerTwoTurn);
   });
 }
