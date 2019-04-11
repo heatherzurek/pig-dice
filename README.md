@@ -1,11 +1,11 @@
-# Beep Boop!
+# Pig Dice!
 
 #### Epicodus project 4/10/19
 
 #### By **Liz Kelley, Heather Zurek**
 
 ## Website
-[Pig Dice](url) //////////////////////////////////////////////
+[Pig Dice](https://jesusridesthebus.github.io/pig-dice/)
 
 ## Description
 
