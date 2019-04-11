@@ -8,7 +8,6 @@ body {
 .card {
   display: inline-block;
   vertical-align: middle;
-  margin-top: 10%;
   margin: 10px;
 }
 
@@ -20,11 +19,13 @@ body {
 #roll {
   background-color: #e817d6;
   color: #efa2e9;
+  border: 2px solid #efa2e9;
 }
 
 #hold {
   background-color: #efa2e9;
   color: #e817d6;
+  border: 2px solid #e817d6;
 }
 
 #dice-roll-card {
@@ -37,12 +38,13 @@ body {
   text-align: left;
   font-size: 12px;
 }
+
+#rules {
+  color: black;
+}
+
 .active {
   background-color: #efa2e9;
   color: #e817d6;
   padding: 5px;
-}
-
-#rules {
-  color: black;
 }
