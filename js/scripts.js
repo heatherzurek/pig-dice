@@ -9,6 +9,8 @@ Player.prototype.hold = function() {
   this.turnScore = 0;
   this.diceRoll = 0;
   myGame.playerTwoTurn = !myGame.playerTwoTurn;
+  $("#player-1-scorecard").toggleClass("active");
+  $("#player-2-scorecard").toggleClass("active");
 }
 
 Player.prototype.rollDice = function() {
@@ -16,11 +18,14 @@ Player.prototype.rollDice = function() {
   this.diceRoll = roll;
   if (roll === 1) {
     this.turnScore = 0;
+    this.diceRoll = 0;
+    alert("You rolled a 1, you lose this turn's points");
     myGame.playerTwoTurn = !myGame.playerTwoTurn;
+    $("#player-1-scorecard").toggleClass("active");
+    $("#player-2-scorecard").toggleClass("active");
   } else {
-
     this.turnScore += roll;
-    this.totalScore += this.turnScore;
+    // this.totalScore += this.turnScore;
   }
 }
 
@@ -47,13 +52,18 @@ var myGame;
 
 //front end business
 function attachRollListeners() {
+  var turn;
   $("#roll").on("click", function() {
     var player = myGame.getCurrentPlayer();
+    if (myGame.playerTwoTurn) {
+      turn = "2";
+    } else {
+      turn = "1";
+    }
     player.rollDice();
     $("#rollResults").text(player.diceRoll);
     $("#totalResults").text(player.turnScore);
-    $("#player" + 1 + "total-points").text(player.totalScore); //funky
-    $("#player-2-total-points").text(player.totalScore);
+    $("#player-" + turn + "-total-points").text(player.totalScore); //funky
     console.log(myGame.playerTwoTurn);
   });
   $("#hold").on("click", function() {
@@ -62,7 +72,7 @@ function attachRollListeners() {
     player.hold();
     $("#rollResults").text(player.diceRoll);
     $("#totalResults").text(player.turnScore);
-    $("#player-1-total-points").text(player.totalScore);
+    $("#player-" + turn + "-total-points").text(player.totalScore);
     // $("#player-2-total-points").text(player.totalScore);
     console.log(myGame.playerTwoTurn);
   });

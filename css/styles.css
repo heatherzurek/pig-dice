@@ -28,3 +28,7 @@
   text-align: left;
   font-size: 12px;
 }
+.active {
+  background-color: #41dcf4;
+  color: #D3FBF5;
+}

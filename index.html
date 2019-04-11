@@ -10,7 +10,7 @@
   </head>
   <body>
     <main class="container" id="piggieDice">
-      <div class="card" id="player-1-scorecard" style="width: 18rem;">
+      <div class="card active" id="player-1-scorecard" style="width: 18rem;">
         <img class="card-img-top" src="./img/pig-1.jpg" alt="Card image cap">
         <div class="card-body">
           <h4>Player 1 Scorecard</h4>
@@ -31,11 +31,11 @@
               The first player to score 100 or more points wins.</p>
             </div>
           </div>
-          <p class="die">Dice Roll:<span id="rollResults"></span></p>
+          <p class="die">Dice Roll: <span id="rollResults"></span></p>
           <section id="button-section">
             <button type="submit" id="roll" class="btn btn-danger">Roll</button>
             <button type="submit" id="hold" class="btn btn-success">Hold</button>
-            <p class="die">Running Total:<span id="totalResults"></span></p>
+            <p class="die">Running Total: <span id="totalResults"></span></p>
             <p id="round-total"></p>
           </section>
         </div>
