@@ -8,21 +8,24 @@ Player.prototype.hold = function() {
   this.totalScore += this.turnScore;
   this.turnScore = 0;
   this.diceRoll = 0;
-  myGame.playerTwoTurn = !myGame.playerTwoTurn;
   $("#player-1-scorecard").toggleClass("active");
   $("#player-2-scorecard").toggleClass("active");
+}
+
+Player.prototype.switchTurns = function() {
+  myGame.playerTwoTurn = !myGame.playerTwoTurn;
 }
 
 Player.prototype.rollDice = function() {
   var roll = Math.floor(Math.random()*6) + 1;
   this.diceRoll = roll;
-  if (roll === 1) {
+    if (roll === 1) {
     this.turnScore = 0;
     this.diceRoll = 0;
-    alert("You rolled a 1, you lose this turn's points");
     myGame.playerTwoTurn = !myGame.playerTwoTurn;
     $("#player-1-scorecard").toggleClass("active");
     $("#player-2-scorecard").toggleClass("active");
+    return true;
   } else {
     this.turnScore += roll;
     // this.totalScore += this.turnScore;
@@ -36,17 +39,11 @@ function Game() {
 
 Game.prototype.getCurrentPlayer = function() {
   if (this.playerTwoTurn === true ) {
-  return this.players[1]
-} else if (this.playerTwoTurn === false ) {
-  return this.players[0]
+    return this.players[1]
+  } else if (this.playerTwoTurn === false ) {
+    return this.players[0]
   }
 }
-
-// function pressHold() {
-//   $('#hold').on('click', function() {
-//     playerOne.totalScore += playerOne.turnScore;
-//   });
-// }
 
 var myGame;
 
@@ -60,21 +57,24 @@ function attachRollListeners() {
     } else {
       turn = "1";
     }
-    player.rollDice();
+    if(player.rollDice() === true) {
+      alert("You rolled a 1, you lose this turn");
+    }
     $("#rollResults").text(player.diceRoll);
     $("#totalResults").text(player.turnScore);
-    $("#player-" + turn + "-total-points").text(player.totalScore); //funky
-    console.log(myGame.playerTwoTurn);
+    $("#player-" + turn + "-total-points").text(player.totalScore);
   });
   $("#hold").on("click", function() {
     var player = myGame.getCurrentPlayer();
     //var creates the variable and name it player assign it the value with= value returned by the function getCurrentPlayer, under the myGame object
     player.hold();
+    if (player.totalScore >= 10 ) {
+      alert("You win!");
+    }
+    player.switchTurns();
     $("#rollResults").text(player.diceRoll);
     $("#totalResults").text(player.turnScore);
     $("#player-" + turn + "-total-points").text(player.totalScore);
-    // $("#player-2-total-points").text(player.totalScore);
-    console.log(myGame.playerTwoTurn);
   });
 }
 
@@ -88,6 +88,5 @@ $(document).ready(function() {
   attachRollListeners();
   $("#piggieDice").submit(function(event) {
     event.preventDefault();
-
   });
 });
