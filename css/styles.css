@@ -16,9 +16,15 @@
 
 .btn {
   width: 100px;
+  margin-bottom: 10px;
 }
 
 #dice-roll-card {
   text-align: center;
   background-color: #D3FBF5;
+}
+
+#rules {
+  text-align: left;
+  font-size: 12px;
 }
