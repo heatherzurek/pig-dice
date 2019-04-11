@@ -57,7 +57,7 @@ function attachRollListeners() {
   });
   $("#hold").on("click", function() {
     var player = myGame.getCurrentPlayer();
-    //var creates the variable and name it player assign it the value with = value returned by the function getCurrentPlayer, under the myGame object
+    //var creates the variable and name it player assign it the value with= value returned by the function getCurrentPlayer, under the myGame object
     player.hold();
     $("#rollResults").text(player.diceRoll);
     $("#totalResults").text(player.turnScore);
