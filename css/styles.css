@@ -1,11 +1,9 @@
-/* .die {
-  text-align: center;
-  font-size: 25px;
-  padding: 18px;
-  border: 2px solid black;
-  height: 75px;
-  width: 75px;
-} */
+body {
+  background-image: url("../img/pig-background.jpg");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
 .card {
   display: inline-block;
@@ -19,9 +17,20 @@
   margin-bottom: 10px;
 }
 
+#roll {
+  background-color: #e817d6;
+  color: #efa2e9;
+}
+
+#hold {
+  background-color: #efa2e9;
+  color: #e817d6;
+}
+
 #dice-roll-card {
   text-align: center;
-  background-color: #D3FBF5;
+  background-color: #8a8c8e;
+  color: white;
 }
 
 #rules {
@@ -29,6 +38,11 @@
   font-size: 12px;
 }
 .active {
-  background-color: #41dcf4;
-  color: #D3FBF5;
+  background-color: #efa2e9;
+  color: #e817d6;
+  padding: 5px;
+}
+
+#rules {
+  color: black;
 }

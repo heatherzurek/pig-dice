@@ -68,7 +68,7 @@ function attachRollListeners() {
     var player = myGame.getCurrentPlayer();
     //var creates the variable and name it player assign it the value with= value returned by the function getCurrentPlayer, under the myGame object
     player.hold();
-    if (player.totalScore >= 10 ) {
+    if (player.totalScore >= 100 ) {
       alert("You win!");
     }
     player.switchTurns();
