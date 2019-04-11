@@ -1,12 +1,24 @@
-.die {
+/* .die {
   text-align: center;
   font-size: 25px;
   padding: 18px;
   border: 2px solid black;
   height: 75px;
   width: 75px;
-}
+} */
 
 .card {
   display: inline-block;
+  vertical-align: middle;
+  margin-top: 10%;
+  margin: 10px;
+}
+
+.btn {
+  width: 100px;
+}
+
+#dice-roll-card {
+  text-align: center;
+  background-color: #D3FBF5;
 }

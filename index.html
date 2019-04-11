@@ -10,31 +10,32 @@
   </head>
   <body>
     <main class="container" id="piggieDice">
-      <h1>Pig Dice</h1>
-      <div class="card" style="width: 18rem;">
+      <div class="card" id="player-1-scorecard" style="width: 18rem;">
         <img class="card-img-top" src="./img/pig-1.jpg" alt="Card image cap">
         <div class="card-body">
           <h4>Player 1 Scorecard:</h4>
           <p class="card-text"> </p>
         </div>
       </div>
-      <div class="card" style="width: 18rem;">
-        <section id="button-section">
-          <button type="submit" id="roll" class="btn btn-danger">Roll</button>
-          <button type="submit" id="hold" class="btn btn-success">Hold</button>
-          <p class="die"><span id="rollResults"></span></p>
-          <p class="die"><span id="totalResults"></span></p>
-          <p id="round-total"></p>
-        </section>
+      <div class="card" id="dice-roll-card" style="width: 18rem;">
+        <div class="card-body">
+          <h1>Pig Dice</h1>
+          <p class="die">Dice Roll:<span id="rollResults"></span></p>
+          <section id="button-section">
+            <button type="submit" id="roll" class="btn btn-danger">Roll</button>
+            <button type="submit" id="hold" class="btn btn-success">Hold</button>
+            <p class="die">Running Total:<span id="totalResults"></span></p>
+            <p id="round-total"></p>
+          </section>
+        </div>
       </div>
-    <div class="card" style="width: 18rem;">
+    <div class="card" id="player-2-scorecard" style="width: 18rem;">
       <img class="card-img-top" src="./img/pig-2.jpg" alt="Card image cap">
       <div class="card-body">
         <h4>Player 2 Scorecard:</h4>
         <p class="card-text"> </p>
       </div>
     </div>
-
     </main>
   </body>
 </html>
